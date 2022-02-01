@@ -1,4 +1,5 @@
 const path = require('path');
+
 module.exports = {
     "mode": "none",
     "entry": "./src/index.js",
@@ -8,5 +9,16 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist')
+    },
+    "module": {
+        "rules": [
+            {
+                "test": /\.css$/,
+                "use": [
+                    "style-loader",
+                    "css-loader"
+                ]
+            },
+        ]
     }
-}
+};

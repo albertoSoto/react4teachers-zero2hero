@@ -6,6 +6,18 @@ Course offered by Conselleria d'Educació de les Illes Balears. 2022
 Training perform by Alberto Soto Fernandez
 
 
+## System requirements
+
+To follow this guide, you'll need to set up the following tools:
+
+- nodejs/npm
+- yarn
+- and IDE of your choice (I am in ♡ love with Intellij and Jetbrains tools)
+- git client
+
+Most of the build process will be performed with yarn, due to the workspaces feature.
+Feel free to use npm if you are confident with it.
+
 ## Content : Stage 1 - Intro to vanillaJS
 
 ### Starting the project
@@ -98,3 +110,84 @@ Open your package.json and write the following
   }
 }
 ```
+
+
+## Let's generate our first bundle
+
+Now that we have our project with some tasks we can start with it, open a terminal and do the following
+
+```bash
+yarn run build
+#or
+npm run build
+```
+
+This is executing the task you need, generating a basic js file, under /dist folder that will be compatible
+If you open the content you'll see the following
+
+```js
+/******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
+console.log('hi there')
+/******/ })()
+;
+```
+
+Nothing great still!
+
+Let's prepare the CSS part
+
+```bash
+npm install --save-dev css-loader style-loader
+#or
+yarn add --dev css-loader style-loader
+```
+
+Modify your webpackconfig with the following:
+- css-loader will inject the css into our js
+- style-loader will load the generate file
+
+```js
+const path = require('path');
+module.exports = {
+ "mode": "none",
+ "entry": "./src/index.js",
+ "output": {
+   "path": __dirname + '/dist',
+   "filename": "bundle.js"
+ },
+ devServer: {
+   contentBase: path.join(__dirname, 'dist')
+ },
+ "module": {
+   "rules": [
+     {
+       "test": /\.css$/,
+       "use": [
+         "style-loader",
+         "css-loader"
+       ]
+     },
+   ]
+ }
+};
+```
+
+> touch src/css/main.css
+
+This will let you load the css from the js into index.js
+
+```js
+import './css/main.css';
+console.log('hi there')
+```
+
+Now execute yarn build again and check you contents, differences start to appear!
+
+
+### Part II: Customize your build and introduce ECMA 6 features
+
+From here we will prepare and generate some basic concepts on vanillaJS that will introduce basuc concepts used by React
+
+
+No
