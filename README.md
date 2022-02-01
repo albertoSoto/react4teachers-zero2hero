@@ -87,12 +87,15 @@ Current ECMA version is 10!
 
 More info at https://www.c-sharpcorner.com/article/comparison-between-ecmascript-5-and-ecmascript-6-versions-of-javascript/#:~:text=While%20ECMAScript%205%20introduced%20lots,functionality%20to%20create%20typed%20arrays.
 
+
+#### Exercise 1: my first js bundle
+
 Let's configure the basic tasks
 Open your package.json and write the following
 
 ```json
 {
-  "name": "caib-react4teachers",
+"name": "caib-react4teachers",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/albertoSoto/react4teachers-zero2hero.git",
@@ -100,12 +103,12 @@ Open your package.json and write the following
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "webpack": "^5.68.0",
+  "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.3"
   },
   "scripts": {
-    "build": "webpack",
+  "build": "webpack",
     "dev-server": "webpack-dev-server"
   }
 }
@@ -126,14 +129,16 @@ This is executing the task you need, generating a basic js file, under /dist fol
 If you open the content you'll see the following
 
 ```js
-/******/ (() => { // webpackBootstrap
-var __webpack_exports__ = {};
-console.log('hi there')
-/******/ })()
+    /******/ (() => { // webpackBootstrap
+    var __webpack_exports__ = {};
+    console.log('hi there')
+    /******/ })()
 ;
 ```
 
 Nothing great still!
+
+#### Exercise 2: css pipelines
 
 Let's prepare the CSS part
 
@@ -190,4 +195,4 @@ Now execute yarn build again and check you contents, differences start to appear
 From here we will prepare and generate some basic concepts on vanillaJS that will introduce basuc concepts used by React
 
 
-No
+
