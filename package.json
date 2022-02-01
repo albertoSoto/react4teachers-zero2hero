@@ -1,0 +1,18 @@
+{
+  "name": "caib-react4teachers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/albertoSoto/react4teachers-zero2hero.git",
+  "author": "Alberto Soto",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.3"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  }
+}
