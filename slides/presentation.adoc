@@ -1,0 +1,94 @@
+//include::_settings_reveal.adoc[]
+
+include::_settings_deck.adoc[]
+
+= React4teachers: 2022 edition
+
+== React4teachers: From Zero 2 Hero
+
+
+image::images/react-zero-hero.jpeg[800,600]
+
+== Contenido del curso
+
+* 1.- Introducció 
+* 2.- De VanillaJs a React 
+* 3.- React framework: Motivos de exito
+* 4.- React framework: Class components vs Function components 
+* 5.- React framework: State management - Control de el estado de la aplication 
+* 6.- React framework: Routing 
+* 7.- Storybook 
+* 8.- Monorepo 
+* 9.- TailwindCSS y StyledComponents 
+* 10.-Despliegue de aplicaciones
+
+== Aspectos docentes
+
+Distribució de les sessions: 
+22 de febrer i 8, 15, 22 i 29 de març de 11:30h a 13:30h.
+
+- 10h presencial per videoconferència i 20h a distància a través de Classroom.
+- Les sessions presencials seran gravades.
+
+== Metodologia utilizada
+
+Previo a la realizacion del curso, el alumno debe configurar entorno de trabajo via chocolatey o homebrew (nodejs, git, yarn, visualcode o jetbrains, sourcetree o tortoisegit)
+
+
+Duracion: 30h
+
+
+- Clases grabadas: si, durante las horas presenciales
+- Trabajo autonomo> si, con guias resueltas en git
+- Nomenclatura de la sesion: mile-1, mile-2.. , mile-5
+
+
+== Seguimiento del curso
+
+Las clases presenciales se componen de sesiones de 2h, que iran relacionadas con un bloque de 2h de trabajo individual.
+Tienes 10h de trabajo entregable.
+
+
+El resto de horas de trabajo autonomo constan de 2 ejercicios:
+- Desarrollo de un proyecto web autonomo
+- Desarrollo de 
+
+== Formato de clases presenciales:
+
+```js
+let isPresentacion = true;
+const inicio = isPresentacion?[{time:15,type:'presentacionPersonal'},{time:15,type:'presentacionCurso'}]:[{time:30,type:'standup'}]
+let doMasterClass = (doRecording) => {return 'knowledge'}
+const principal = () => { doMasterClass(true); return {time:60,type:'learnNewTopics'}}
+const prepareNextLesson = {time:30,type:'flushKnowledge'}
+let result = [...inicio,principal(),prepareNextLesson]
+const NUM_LESSONS = 5
+const HOUR_VALUE = 60
+let totalLessonTime = 0
+result.forEach(aux=>{ totalLessonTime+= aux.time;})
+console.log(`Total time per lesson is ${totalLessonTime} minutes`)
+console.log(`Total in-person time is ${totalLessonTime*NUM_LESSONS} minutes (${(totalLessonTime*NUM_LESSONS)/HOUR_VALUE}h)`)
+```
+ 
+
+
+== Transferència
+
+- Realizar, aplicar y entregar la aplicación didáctica según el modelo establecido.
+
+Los contenidos trabajados a la formación se tienen que ligar al módulo que imparte el participante este curso escolar en su centro.
+Las aplicaciones didácticas serán publicadas en el web de la Consellería de Educación y Formación Profesional (con la inscripción
+a la formación, el participante acepta las condiciones).
+
+== Evaluación y certificación
+
+- Asistencia mínima obligatoria 85% de las sesiones presenciales.
+- Las faltas de asistencia en las horas de formación presencial, no se justificarán en ningún caso.
+- Realización de las tareas obligatorias.
+- Entrega de la aplicación didáctica en el formato y plazo establecidos.
+- Una vez finalizado el proceso de certificación, la actividad se cerrará.
+- En este momento os enviaremos un correo electrónico a la dirección que habéis puesto a vuestra solicitud.
+- Si habéis certificado, podréis ver la formación en vuestro portal, apartado Formación de los docentes, Actividades internas.
+- Si no la podéis ver, es que no la tenéis certificada.
+- Os podéis poner en contacto con el servicio organizador para cualquier aclaración.
+- Disponéis de un plazo de 90 días desde el envío del correo electrónico para presentar una reclamación al servicio organizador, si se tercia.

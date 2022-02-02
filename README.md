@@ -26,7 +26,9 @@ We will set up a project based on vanillaJs, using webpack 5 as a base to stabli
 To achieve it, perform the following steps:
 
 ```bash
-yarn init --private
+# yarn init --private
+# Option for all yes by default and private
+yarn init -yp
 yarn add webpack webpack-cli webpack-dev-server --dev
 touch webpack.config.js
 mkdir src
@@ -192,7 +194,8 @@ Now execute yarn build again and check you contents, differences start to appear
 
 ### Part II: Customize your build and introduce ECMA 6 features
 
-From here we will prepare and generate some basic concepts on vanillaJS that will introduce basuc concepts used by React
+From here we will prepare and generate some basic concepts on vanillaJS that will introduce basic concepts used by React
 
+http://es6-features.org/#Constants
 
 

@@ -1,0 +1,63 @@
+//include::_settings_reveal.adoc[]
+
+include::_settings_deck.adoc[]
+
+= React4teachers: 2022 edition
+
+== React4teachers: From Zero 2 Hero
+
+
+image::images/react-zero-hero.jpeg[800,600]
+
+== Contenido del curso
+
+* 1.- Introducció 
+* 2.- De VanillaJs a React 
+* 3.- React framework: Motivos de exito
+* 4.- React framework: Class components vs Function components 
+* 5.- React framework: State management - Control de el estado de la aplication 
+* 6.- React framework: Routing 
+* 7.- Storybook 
+* 8.- Monorepo 
+* 9.- TailwindCSS y StyledComponents 
+* 10.-Despliegue de aplicaciones
+
+== Introduccion a react
+
+La mejor introduccion que podemos ofrecer para ReactJs es el propio javascript.
+Conocer nuestro punto de partida real es basico para saber que capacidades comporta.
+Tradicionalmente al uso de javascript plano, sin intermediacion de librerias lo denominaremos VanillaJS.
+
+React es una framework/libreria JS que extiende la funcionalidad de vanillaJS al infinito.
+
+Podriamos 
+
+
+== La web tradicional
+
+- Tradicionalmente el servidor ha generado la salida del html que el navegador introduce
+- Aproximaciones basicas en ECMA5 JS garantizaban la compatibilidad
+
+
+
+== Conceptos tecnologicos
+
+SSR
+SSG
+SPA
+
+
+== Recursos de aprendizaje
+
+https://js.coderslang.com/
+https://www.c-sharpcorner.com/article/comparison-between-ecmascript-5-and-ecmascript-6-versions-of-javascript/#:~:text=While%20ECMAScript%205%20introduced%20lots,functionality%20to%20create%20typed%20arrays.
+
+== Otros links
+
+* https://www.freecodecamp.org/news/react-fundamentals-for-beginners/
+https://www.freecodecamp.org/news/learn-react-basics/
+https://www.freecodecamp.org/news/javascript-execution-context-and-hoisting/
+* https://www.freecodecamp.org/news/the-javascript-array-handbook/
+* https://www.freecodecamp.org/news/understanding-let-const-and-var-keywords/
+https://javascript.plainenglish.io/a-javascript-cheatsheet-you-need-in-2020-d81b3dd89e09
+https://www.w3resource.com/javascript-exercises/
