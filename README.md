@@ -145,10 +145,12 @@ Nothing great still!
 Let's prepare the CSS part
 
 ```bash
-npm install --save-dev css-loader style-loader
+npm install --save-dev css-loader style-loader node-sass sass-loader 
 #or
-yarn add --dev css-loader style-loader
+yarn add --dev css-loader style-loader node-sass sass-loader
 ```
+
+
 
 Modify your webpackconfig with the following:
 - css-loader will inject the css into our js

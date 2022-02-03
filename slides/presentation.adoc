@@ -1,13 +1,20 @@
-//include::_settings_reveal.adoc[]
-
-include::_settings_deck.adoc[]
+include::_settings_reveal.adoc[]
 
 = React4teachers: 2022 edition
 
-== React4teachers: From Zero 2 Hero
+== React4teachers
+
+
+*From Zero 2 Hero*
 
 
 image::images/react-zero-hero.jpeg[800,600]
+
+Conselleria d'educacio de les Illes Balears
+
+By Alberto Soto
+
+2022
 
 == Contenido del curso
 
@@ -30,18 +37,39 @@ Distribució de les sessions:
 - 10h presencial per videoconferència i 20h a distància a través de Classroom.
 - Les sessions presencials seran gravades.
 
-== Metodologia utilizada
+== Que necesitas para realizar el curso
 
 Previo a la realizacion del curso, el alumno debe configurar entorno de trabajo via chocolatey o homebrew (nodejs, git, yarn, visualcode o jetbrains, sourcetree o tortoisegit)
 
+* https://nodejs.org/en/
+* https://www.jetbrains.com/idea/download
+* https://www.jetbrains.com/webstorm/
+* https://git-scm.com/
+* https://yarnpkg.com/
+
+==  Homebrew
+
+
+[source,]
+----
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew update
+brew install git
+brew upgrade git
+----
+
+
+== Comprobacion
+image::images/0-system-check.png[]
+
+== Metodologia utilizada
 
 Duracion: 30h
 
-
 - Clases grabadas: si, durante las horas presenciales
-- Trabajo autonomo> si, con guias resueltas en git
-- Nomenclatura de la sesion: mile-1, mile-2.. , mile-5
-
+- Trabajo autonomo: si, con guias resueltas en git
+- Nomenclatura de la sesion en git: mile-1, mile-2.. , mile-5
 
 == Seguimiento del curso
 
@@ -50,14 +78,22 @@ Tienes 10h de trabajo entregable.
 
 
 El resto de horas de trabajo autonomo constan de 2 ejercicios:
-- Desarrollo de un proyecto web autonomo
-- Desarrollo de 
 
-== Formato de clases presenciales:
+- Desarrollo de un proyecto web autonomo desplegado en la nube como SSG
+
+- Desarrollo de una aplicacion didactica (obligatorio)
+
+== Formato de clases presenciales
+
+image::images/0-presentationCode.png[]
+
+== Formato de clases presenciales
 
 ```js
 let isPresentacion = true;
-const inicio = isPresentacion?[{time:15,type:'presentacionPersonal'},{time:15,type:'presentacionCurso'}]:[{time:30,type:'standup'}]
+const presentationContent=[{"time":15,"type":'presentacionPersonal'},{"time":15,"type":'presentacionCurso'}]
+const regularContent=[{time:30,type:'standup'}]
+const inicio = isPresentacion?presentationContent:regularContent;
 let doMasterClass = (doRecording) => {return 'knowledge'}
 const principal = () => { doMasterClass(true); return {time:60,type:'learnNewTopics'}}
 const prepareNextLesson = {time:30,type:'flushKnowledge'}
@@ -72,17 +108,18 @@ console.log(`Total in-person time is ${totalLessonTime*NUM_LESSONS} minutes (${(
  
 
 
-== Transferència
+== Transferencia
 
 - Realizar, aplicar y entregar la aplicación didáctica según el modelo establecido.
 
 Los contenidos trabajados a la formación se tienen que ligar al módulo que imparte el participante este curso escolar en su centro.
+
 Las aplicaciones didácticas serán publicadas en el web de la Consellería de Educación y Formación Profesional (con la inscripción
 a la formación, el participante acepta las condiciones).
 
 == Evaluación y certificación
 
-- Asistencia mínima obligatoria 85% de las sesiones presenciales.
+- Asistencia mínima obligatoria **85% **de las sesiones presenciales.
 - Las faltas de asistencia en las horas de formación presencial, no se justificarán en ningún caso.
 - Realización de las tareas obligatorias.
 - Entrega de la aplicación didáctica en el formato y plazo establecidos.
@@ -91,4 +128,3 @@ a la formación, el participante acepta las condiciones).
 - Si habéis certificado, podréis ver la formación en vuestro portal, apartado Formación de los docentes, Actividades internas.
 - Si no la podéis ver, es que no la tenéis certificada.
 - Os podéis poner en contacto con el servicio organizador para cualquier aclaración.
-- Disponéis de un plazo de 90 días desde el envío del correo electrónico para presentar una reclamación al servicio organizador, si se tercia.
