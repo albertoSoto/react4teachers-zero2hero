@@ -1,6 +1,6 @@
 
 https://graphcms.com/blog/difference-spa-ssg-ssr
-
+https://github.com/cruip/tailwind-landing-page-template
 == Recursos de aprendizaje
 
 https://js.coderslang.com/
