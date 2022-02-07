@@ -232,33 +232,53 @@ https://github.com/dunapanta/Web-3.0-Blockchain-Solidity-App[source]
 
 == Conceptos tecnologicos
 
-SSR
-SSG
-SPA
+SSR: Server Side Rendering
+SSG: Static Site Generation
+SPA: Single Page Application
+
+== SPA
+
+Las SPA están estructuradas como una sola página HTML que no tiene contenido precargado. El contenido se carga a través de archivos Javascript para toda la aplicación y todo es una sola página HTML.
+
+PROs: UX, control
+Cons: SEO, deeplinking, payload
+
+Actualmente: Backends/Social
+
+React, AngularJS, Vue.js, Ember.JS y Svelte
+
+== SSG Static Site Generation
+
+La pagina se crea en tiempo de compilacion de manera integra o progresiva.
+
+Metodologia: Gatsby, Nextjs
+Proveedores: CDN, Netlify, Vercel
+
+PRO: No hay nada mas rapido, SEO, escalable, economico.
+Cons: No encaja en todo modelo de negocio. Personalizacion, contenido dinamico
+
+== SSR
+
+Actualmente se habla de SSR tradicional o SSR 2.0
+Se puede hacer un renderizaje intermedio.
+
+- Backend/microservicio
+- Frontend Nextjs/SSR + Cache
+- NextJS > SSG
+
+Metodologia: Nextjs
+Proveedores: Cloud provider, Netlify, Vercel
+
+== Pregunto otra vez!
+
+Entonces...
+js es compilado o interpretado?
 
 
-== Recursos de aprendizaje
+== 
 
-https://js.coderslang.com/
-https://www.c-sharpcorner.com/article/comparison-between-ecmascript-5-and-ecmascript-6-versions-of-javascript/#:~:text=While%20ECMAScript%205%20introduced%20lots,functionality%20to%20create%20typed%20arrays.
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+== Bundlelers
 
-https://graphcms.com/blog/difference-spa-ssg-ssr
-
-https://www.w3resource.com/javascript-exercises/
-
-https://javascript.plainenglish.io/a-javascript-cheatsheet-you-need-in-2020-d81b3dd89e09
-
-http://es6-features.org/#BlockScopedVariables
-
-https://kangax.github.io/compat-table/es6/
-
-https://betterprogramming.pub/the-battle-of-bundlers-6333a4e3eda9
-
-https://dev.to/robotspacefish/how-i-set-up-webpack-and-babel-with-vanilla-js-2k5e
-
-https://medium.com/geekculture/set-up-webpack-5-for-basic-javascript-projects-8bded066d282
-
-https://javascript.plainenglish.io/a-javascript-cheatsheet-you-need-in-2020-d81b3dd89e09
-
-https://codeburst.io/how-to-count-poperty-values-in-an-array-including-unique-property-values-74d46cbf2921
+- Webpack
+- Vite
+- 

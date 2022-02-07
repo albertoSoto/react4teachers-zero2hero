@@ -22,8 +22,8 @@ UD1-Ecma6
 
 == Contenido del curso
 
-* 1.- Introducció 
-* 2.- De VanillaJs a React
+* 1.- Introducción
+* 2.- De VanillaJs a React 
 * 3.- React framework: Motivos de exito
 * 4.- React framework: Class components vs Function components 
 * 5.- React framework: State management - Control de el estado de la aplication 
@@ -32,6 +32,7 @@ UD1-Ecma6
 * 8.- Monorepo 
 * 9.- TailwindCSS y StyledComponents 
 * 10.-Despliegue de aplicaciones
+
 
 == Aspectos docentes
 
