@@ -1,19 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="stylesheet" href="/styles/style.css" />
-  </head>
-  <body>
-    <div id="app">
-      <div class="bg-green-500 mx-auto my-auto items-center justify-center flex p-10">
-        <span class="text-5xl">React 4 teachers</span>
-        <span class="text-xl">Explorando vanillajs!</span>
-      </div>
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>React 4 teachers</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+</head>
+<body class="text-gray-700 bg-white" style="font-family: 'Source Sans Pro', sans-serif">
+<nav>
+    <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+        <a class="font-bold text-2xl lg:text-4xl" href="#">
+            React 4 teachers
+        </a>
+        <div class="block lg:hidden">
+            <button class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-teal-500 appearance-none focus:outline-none">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>React 4 teachers</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="hidden lg:block">
+            <ul class="inline-flex">
+                <li><a class="px-4 font-bold" href="/">Home</a></li>
+                <li><a class="px-4 hover:text-gray-800" href="#">Ejercicio 1</a></li>
+                <li><a class="px-4 hover:text-gray-800" href="#">Ejercicio 2</a></li>
+                <li><a class="px-4 hover:text-gray-800" href="#">Ejercicio 3</a></li>
+            </ul>
+        </div>
     </div>
-    <script type="module" src="/js/main.js"></script>
-  </body>
+</nav>
+<div id="app" class="py-20" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%)">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-2 text-white">
+            React 4 teachers
+        </h2>
+        <h3 class="text-2xl mb-8 text-gray-200">
+            Capitulo 1: Explorando vanillajs!
+        </h3>
+        <button class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider">
+            Quiero aprender react, no vanillajs!
+        </button>
+    </div>
+</div>
+<script type="module" src="/js/main.js"></script>
+</body>
 </html>
