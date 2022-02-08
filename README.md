@@ -30,42 +30,70 @@ To achieve it, perform the following steps:
 # yarn init --private
 # Option for all yes by default and private
 yarn init -yp
-yarn add webpack webpack-cli webpack-dev-server --dev
-touch webpack.config.js
+yarn add autoprefixer postcss tailwindcss vite sass --dev
+touch tailwind.config.js
+touch vite.config.js
+touch postcss.config.js
 mkdir src
 mkdir dist
-touch src/index.js
+touch src/js/main.js
+touch src/index.html
 ```
 
-Inside the webpack.config.js insert the following
+Inside the tailwind.config.js insert the following
 
 ```js
-const path = require('path');
 module.exports = {
-    "mode": "none",
-    "entry": "./src/index.js",
-    "output": {
-        "path": __dirname + '/dist',
-        "filename": "bundle.js"
+    content: ["./src/index.html",],
+    theme: {
+        extend: {},
     },
-    devServer: {
-        contentBase: path.join(__dirname, 'dist')
-    }
+    plugins: [],
 }
 ```
 
 Inside src/index.js, Introduce a basic console.log('hi there')
 
-### Introducing tasks for webpack 5
+Inside the vite.config.js insert the following
 
-Webpack will act as our transpiler, making everything ready to work in any browser, integrating into our bundle all the
+```js
+module.exports = {
+    root: 'src',
+    build: {
+        outDir: '../dist'
+    },  theme: {
+        extend: {},
+    },
+    plugins: [],
+}
+```
+
+
+Inside the vite.config.js insert the following
+
+```js
+module.exports = {
+plugins: {
+tailwindcss: {},
+autoprefixer: {},
+},
+}
+```
+
+
+
+
+### Introducing tasks for vite
+
+Webpack 5 and Vite are the most common bundlers nowadays.
+They act as our transpiler, making everything ready to work in any browser, integrating into our bundle all the
 tools we define and letting you work with any pipeline.
 
 There are other bundlers in the market, but webpack is ready to fit any enterprise solution.
 
 Years ago we were using Gulp, Grunt, Bower...but those days are gone.
 
-Current bundle creators are: Webpack, Parcel & Rollup.
+Current bundle creators are: Webpack, Vite, Parcel & Rollup.
 
 You can't have it all, so each of them perform in some tasks. From my point of view, webpack is amazing to perform deep
 details, but it brings more complexity. Anyway feel free to use any of them.
@@ -88,11 +116,65 @@ Current ECMA version is 10!
 
 More info
 at https://www.c-sharpcorner.com/article/comparison-between-ecmascript-5-and-ecmascript-6-versions-of-javascript/#:~:text=While%20ECMAScript%205%20introduced%20lots,functionality%20to%20create%20typed%20arrays
-.
 
 #### Exercise 1: my first js bundle
 
-Let's configure the basic tasks Open your package.json and write the following
+Generate a src/index.html with the following:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>React 4 teachers</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+</head>
+<body class="text-gray-700 bg-white" style="font-family: 'Source Sans Pro', sans-serif">
+<nav>
+    <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+        <a class="font-bold text-2xl lg:text-4xl alternative-font" href="#">
+            React 4 teachers
+        </a>
+        <div class="block lg:hidden">
+            <button class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-teal-500 appearance-none focus:outline-none">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>React 4 teachers</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="hidden lg:block">
+            <ul class="inline-flex">
+                <li><a class="px-4 font-bold" href="/">Home</a></li>
+                <li><a class="px-4 hover:text-gray-800" href="#">Ejercicio 1</a></li>
+                <li><a class="px-4 hover:text-gray-800" href="#">Ejercicio 2</a></li>
+                <li><a class="px-4 hover:text-gray-800" href="#">Ejercicio 3</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="app" class="py-20" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%)">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-2 text-white">
+            React 4 teachers
+        </h2>
+        <h3 class="text-2xl mb-8 text-gray-200">
+            Capitulo 1: Explorando vanillajs!
+        </h3>
+        <button class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider">
+            Quiero aprender react, no vanillajs!
+        </button>
+    </div>
+</div>
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>
+```
+
+
+Let's configure the basic tasks. Open your package.json and write the following
 
 ```json
 {
@@ -104,15 +186,22 @@ Let's configure the basic tasks Open your package.json and write the following
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "webpack": "^5.68.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.3"
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.15",
+    "vite": "^2.7.2"
   },
   "scripts": {
-    "build": "webpack",
-    "dev-server": "webpack-dev-server"
-  }
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
+
 ```
 
 ## Let's generate our first bundle
@@ -128,105 +217,40 @@ npm run build
 This is executing the task you need, generating a basic js file, under /dist folder that will be compatible If you open
 the content you'll see the following
 
-```js
-    /******/
-(() => { // webpackBootstrap
-    var __webpack_exports__ = {};
-    console.log('hi there')
-    /******/
-})()
-;
-```
 
 Nothing great still!
 
 #### Exercise 2: css pipelines
 
-Let's prepare the CSS part
-
-```bash
-npm install --save-dev css-loader style-loader node-sass sass-loader mini-css-extract-plugin html-webpack-plugin
-#or
-yarn add --dev css-loader style-loader node-sass sass-loader mini-css-extract-plugin html-webpack-plugin
-```
-
-Modify your webpackconfig with the following:
-
-- css-loader will inject the css into our js
-- style-loader will load the generate file
-
-```js
-const path = require('path');
-
-module.exports = {
-    mode: "none",
-    entry: "./src/index.js",
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: "bundle.js",
-        publicPath: "./",
-        assetModuleFilename: "images/[name][ext][query]"
-    },
-    devtool: 'source-map',
-    devServer: {
-        port: 3000,
-        static: {
-            directory: path.resolve(__dirname, 'app'),
-        },
-        hot: true,
-        historyApiFallback: { index: 'index.html' },
-    },
-    module: {
-        "rules": [
-            {
-                "test": /\.css$/,
-                "use": [
-                    "style-loader",
-                    "css-loader"
-                ]
-            }, {
-                "test": /\.scss$/,
-                "use": [
-                    "style-loader",
-                    "css-loader",
-                    "sass-loader"
-                ]
-            },{
-                "test": /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                "type": "asset/resource"
-            },
-        ]
-    }
-};
-```
 
 > touch src/styles/main.css
-> touch src/styles/generic.scss
+> touch src/styles/alternative.scss
 
 ```scss
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
-body {
+.alternative-font {
   font: 100% $font-stack;
   color: $primary-color;
 }
 ```
 
-This will let you load the styles from the js into index.js
+This will let you load the styles from js into html!
 
 ```js
-import './styles/main.css';
-import './styles/generic.scss';
+import './styles/alternative.scss';
 
 console.log('hi there')
 ```
 
 Now execute yarn build again and check you contents, differences start to appear!
+Check your reference label and seee how scss it#s processed and loaded
 
-### Part II: Customize your build and introduce ECMA 6 features
+### Part II: Discover vanillaJs
 
-From here we will prepare and generate some basic concepts on vanillaJS that will introduce basic concepts used by React
 
-http://es6-features.org/#Constants
+Now we are going to play with some basic exercises:
+
+### The 3 ways of a function
 
 
