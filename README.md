@@ -251,6 +251,72 @@ Check your reference label and seee how scss it#s processed and loaded
 
 Now we are going to play with some basic exercises:
 
-### The 3 ways of a function
+### The types
 
+````js
+typeof "John"                 // Returns "string"
+typeof 3.14                   // Returns "number"
+typeof NaN                    // Returns "number"
+typeof false                  // Returns "boolean"
+typeof [1,2,3,4]              // Returns "object"
+typeof {name:'John', age:34}  // Returns "object"
+typeof new Date()             // Returns "object"
+typeof function () {}         // Returns "function"
+typeof myCar                  // Returns "undefined" *
+typeof null                   // Returns "object"
+````
 
+### The death of var
+
+```js
+let length = 16; // Number
+const lastName = "Johnson"; // String
+let cars = ["Saab", "Volvo", "BMW"]; // Array
+let x = {firstName:"John", lastName:"Doe"}; // Object
+console.log(typeof lastName);
+```
+
+### Null is not null
+
+```js
+typeof undefined // undefined
+typeof null // object
+null === undefined // false
+null == undefined // true
+```
+
+### The falsy values
+
+The following values evaluate to false (also known as Falsy values):
+
+- false
+- undefined
+- null
+- 0
+- NaN
+- the empty string ("")
+
+```js
+let b = new Boolean(false);
+if (b)         // this condition evaluates to true
+if (b == true) // this condition evaluates to false
+```
+
+### Everything is an object: The 3 ways of a function
+
+Convert your js function in the following and check the result on the console:
+
+```js
+function doLog(msg){
+  console.log(msg);
+}
+let doAnotherLog = function(coolMsg){
+  console.log(coolMsg);
+}
+const test = () => {
+  console.log('hello world')
+}
+doLog('conventional function')
+doAnotherLog('not so conventional function')
+test()
+```
