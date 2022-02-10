@@ -359,5 +359,11 @@ myNames.map(elem => {
 myName.map(helloWorld);
 ```
 
-### JS Classes
+### Exercise for unit 1
 
+
+When the user clicks on the button try to show all the users shown by http://dummy.restapiexample.com/api/v1/employees
+
+
+You can include an html template from
+https://tailwindcomponents.com/component/testimonial-card

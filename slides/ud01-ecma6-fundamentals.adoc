@@ -587,7 +587,7 @@ console.log(output);
 // That Mike is a youngster.
 ----
 
-== Iterate me
+== Iterate my soul
 
 [source,]
 ----
@@ -614,6 +614,8 @@ el.innerHTML = JSON.stringify(newArr);
 ----
 
 https://www.geeksforgeeks.org/most-useful-javascript-array-functions-part-2/[More info]
+
+https://masteringjs.io/tutorials/fundamentals/map-foreach[Still more info]
 
 == From Jquery to vanillaJS
 
@@ -783,3 +785,16 @@ result.forEach(aux=>{ totalLessonTime+= aux.time;})
 console.log(`Total time per lesson is ${totalLessonTime} minutes`)
 console.log(`Total in-person time is ${totalLessonTime*NUM_LESSONS} minutes (${(totalLessonTime*NUM_LESSONS)/HOUR_VALUE}h)`)
 ----
+
+
+== Ejercicio
+
+Cuando el usuario haga en un boton, cargaras los usuarios de la siguiente direccion:
+http://dummy.restapiexample.com/api/v1/employees
+
+Con los datos obtenidos, renderiza dinamicamente tu pagina para mostrarlos.
+
+Puedes usar esta plantilla:
+
+https://tailwindcomponents.com/component/testimonial-card
+Y una imagen de https://picsum.photos/
