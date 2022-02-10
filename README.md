@@ -248,7 +248,7 @@ Check your reference label and seee how scss it#s processed and loaded
 
 ### Part II: Discover vanillaJs
 
-
+Here you have some examples, try them all and try to understand them!
 Now we are going to play with some basic exercises:
 
 ### The types
@@ -320,3 +320,44 @@ doLog('conventional function')
 doAnotherLog('not so conventional function')
 test()
 ```
+
+
+### Everything is an object: functions too
+
+```js
+//Function type 2 (json object) (by expression)
+let myFunctions = {
+  /**
+   * typical hello world
+   * @param name parameter
+   */
+  sayHi: function (name) {
+    console.log(`Aloha ${name}!`);
+  }
+};
+myFunctions.sayHi("pepito");//<- execution
+```
+
+### Everything is an object: breaking minds
+
+
+```js
+//Function type 3 (arrow function) (by functional programming)
+/**
+ * Function type 3
+ * @param name
+ */
+let helloWorld = (name) => {
+  console.log(name);
+};
+helloWorld("pepito")//<- basic usage
+// This is a complex example. TAKE IT EASY HERE!
+let myNames = ["pepito","palotes","John Doe"]
+myNames.map(elem => {
+  console.log(elem);
+});
+myName.map(helloWorld);
+```
+
+### JS Classes
+
