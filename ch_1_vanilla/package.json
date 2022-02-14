@@ -1,0 +1,25 @@
+{
+  "name": "caib-react4teachers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/albertoSoto/react4teachers-zero2hero.git",
+  "author": "Alberto Soto",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.15",
+    "vite": "^2.7.2",
+    "sass": "^1.49.7"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
