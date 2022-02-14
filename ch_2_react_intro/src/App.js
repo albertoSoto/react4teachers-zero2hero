@@ -1,14 +1,12 @@
 
-
+import {Hero} from "./components/Hero"
+import Header from "./layout/Header"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-      </header>
-    </div>
+      <body className="text-gray-700 bg-white">
+        <Header/>
+      <Hero/>
+      </body>
   );
 }
 
