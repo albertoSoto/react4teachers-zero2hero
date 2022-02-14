@@ -28,3 +28,18 @@ https://medium.com/geekculture/set-up-webpack-5-for-basic-javascript-projects-8b
 https://javascript.plainenglish.io/a-javascript-cheatsheet-you-need-in-2020-d81b3dd89e09
 
 https://codeburst.io/how-to-count-poperty-values-in-an-array-including-unique-property-values-74d46cbf2921
+
+
+
+
+
+
+
+
+== Links
+
+* https://www.freecodecamp.org/news/react-fundamentals-for-beginners/
+https://www.freecodecamp.org/news/learn-react-basics/
+https://www.freecodecamp.org/news/javascript-execution-context-and-hoisting/
+* https://www.freecodecamp.org/news/the-javascript-array-handbook/
+* https://www.freecodecamp.org/news/understanding-let-const-and-var-keywords/
