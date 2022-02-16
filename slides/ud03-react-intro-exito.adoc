@@ -589,5 +589,39 @@ export default App;
 
 == Progresion del ejercicio
 
-Ahora generemos los componentes
+Ahora generemos los componentes y los anadimos
+
+[source,]
+----
+import {Hero} from "./components/Hero"
+import Header from "./layout/Header"
+import React from 'react'
+import Exercise2Image from "./components/Exercise2Image"
+import Exercise3Data from "./components/Exercise3Data";
+
+class App extends React.Component
+{
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return  <body className="text-gray-700 bg-white">
+            <Header/>
+            <Hero/>
+            <Exercise2Image/>
+            <Exercise3Data/>
+        </body>
+    }
+}
+export default App;
+----
+
+== Progresion del ejercicio
+
+- En App, pondremos un estado general, que sera la opcion Hero por defecto 
+- Pasaremos una funcion para cambiar el estado cada 5 segundos y pondremos que cambie a otro componente segun el estado. Para ello genera una funcion adicional y invocala con un timeout
+
+
+
 
