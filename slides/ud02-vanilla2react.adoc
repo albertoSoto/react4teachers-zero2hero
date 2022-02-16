@@ -324,3 +324,21 @@ Distribuye en dichos elementos el siguiente codigo final, haciendd las modificac
 </div>
 </body>
 ----
+
+
+==  Ejercicio 1
+
+Consideraciones:
+- Los estilos en linea se deben evitar en toda regla: Convierte a un elemento comun
+- Cuando generamos componentes sus ciclos de vida son independientes. Eso quiere decir que puedes tener ficheros css por componente
+- Cuando usamos import (ECMA6) en lugar de require (ECMA5) debes tener en cuenta el tipo de export que realizas* 
+
+[source,]
+----
+import {Hero} from "./components/Hero"
+import Header from "./layout/Header"
+
+export default function Header() {...}
+export function Hero() {...}
+
+----
