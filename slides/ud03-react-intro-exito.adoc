@@ -527,3 +527,67 @@ El método render() es el método del ciclo de vida más utilizado y obligatorio
 == Resumen
 
 image::images/react-lifecycle-simple.png[]
+
+== Ejercicio
+
+Teniendo de base nuestro layout con un header, un panel de contenidos con Hero, vamos a realizar que cada boton tenga una accion
+
+- El ejercicio 1, renderizara Hero
+- El ejercicio 2, renderizara un componente que quieras
+- Ejercicio 3, llamara a la API https://jsonplaceholder.typicode.com/users
+
+
+Como resolverlo:
+
+- Primero, renderiza los componentes nuevos, usando React class.
+- Cambia App.js a React Class
+- Cuando tengas todos los componentes, uno detras de otro, vas a usar un estado en el padre y un metodo en padre para actualizar el estado. Ademas, cada elemento hijo tendra un callback para cambiar el estado del padre.
+
+== Progresion del ejercicio
+
+- Desevolucionar a React Class el fichero App.js
+
+[source,]
+----
+import {Hero} from "./components/Hero"
+import Header from "./layout/Header"
+
+function App() {
+    return (
+        <body className="text-gray-700 bg-white">
+            <Header/>
+            <Hero/>
+        </body>
+    );
+}
+
+export default App;
+
+// a
+
+import {Hero} from "./components/Hero"
+import Header from "./layout/Header"
+import React from 'react'
+
+class App extends React.Component
+{
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return  <body className="text-gray-700 bg-white">
+            <Header/>
+            <Hero/>
+        </body>
+    }
+}
+
+export default App;
+----
+
+
+== Progresion del ejercicio
+
+Ahora generemos los componentes
+
