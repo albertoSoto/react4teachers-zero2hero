@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({onClick}) {
     return (
         <nav>
             <div className="container mx-auto px-6 py-2 flex justify-between items-center">
@@ -17,9 +17,9 @@ export default function Header() {
                 <div className="hidden lg:block">
                     <ul className="inline-flex">
                         <li><a className="px-4 font-bold" href="/">Home</a></li>
-                        <li><a className="px-4 hover:text-gray-800" href="#">Ejercicio 1</a></li>
-                        <li><a className="px-4 hover:text-gray-800" href="#">Ejercicio 2</a></li>
-                        <li><a className="px-4 hover:text-gray-800" href="#">Ejercicio 3</a></li>
+                        <li><a className="px-4 hover:text-gray-800" href="#" onClick={()=>onClick(1)}>Ejercicio 1</a></li>
+                        <li><a className="px-4 hover:text-gray-800" href="#" onClick={()=>onClick(2)}>Ejercicio 2</a></li>
+                        <li><a className="px-4 hover:text-gray-800" href="#" onClick={()=>onClick(3)}>Ejercicio 3</a></li>
                     </ul>
                 </div>
             </div>

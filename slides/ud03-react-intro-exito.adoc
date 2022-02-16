@@ -622,6 +622,145 @@ export default App;
 - En App, pondremos un estado general, que sera la opcion Hero por defecto 
 - Pasaremos una funcion para cambiar el estado cada 5 segundos y pondremos que cambie a otro componente segun el estado. Para ello genera una funcion adicional y invocala con un timeout
 
+== Progresion del ejercicio
+
+Este es un ejemplo de como cambiar el estado de la aplicacion y modificar el renderizaje.
+
+[source,]
+----
+import {Hero} from "./components/Hero"
+import Header from "./layout/Header"
+import React from 'react'
+import Exercise2Image from "./components/Exercise2Image"
+import Exercise3Data from "./components/Exercise3Data";
+
+class App extends React.Component
+{
+    constructor(props) {
+        super(props);
+        this.state = {
+            option: 1
+        }
+    }
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({option: 2})
+        }, 10000)
+    }
+    render() {
+        let renderingPart ="";
+        console.log(`Current state value is ${this.state.option}`)
+        if (this.state.option===2){
+            renderingPart = <Exercise2Image/>
+        }else if(this.state.option===3){
+            renderingPart = <Exercise3Data/>
+        }else {
+            renderingPart = <Hero/>
+        }
+        return  <body className="text-gray-700 bg-white">
+            <Header/>
+            {renderingPart}
+        </body>
+    }
+}
+
+export default App;
+----
 
 
+== Ejercicio
 
+Una vez modificado el layout, podemos generar una funcion que pasaremos como propiedad. Esta funcion cambiara el estado y actuara como callback en el momento del click
+
+Usar las funciones como callback necesita hacer un BIND para no perder el estado de this. En React Class el binding se hace en el constructor.
+
+[source,]
+----
+import {Hero} from "./components/Hero"
+import Header from "./layout/Header"
+import React from 'react'
+import Exercise2Image from "./components/Exercise2Image"
+import Exercise3Data from "./components/Exercise3Data";
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            option: 1
+        }
+        this.setActiveOption = this.setActiveOption.bind(this);
+    }
+
+    setActiveOption(val) {
+        console.log(`Callback - changing state value to ${val}`)
+        this.setState({option: val})
+    }
+
+    render() {
+        let renderingPart = "";
+        console.log(`Current state value is ${this.state.option}`)
+        if (this.state.option === 2) {
+            renderingPart = <Exercise2Image/>
+        } else if (this.state.option === 3) {
+            renderingPart = <Exercise3Data/>
+        } else {
+            renderingPart = <Hero/>
+        }
+        return <body className="text-gray-700 bg-white">
+        <Header onClick={this.setActiveOption}/>
+        {renderingPart}
+        </body>
+    }
+}
+
+export default App;
+----
+
+== Ejercicio: resolucion
+
+Para poder desarrollar el cambio de estado en el nodo hijo, pasamos al menu el metodo para cambiar la funcion activa. Esta funcion se pasa por propiedad del componente, en una propiedad que hemos llamado onClick.
+
+> Es muy importante que observer como se define una funcion on click, ya que el evento se asigna por arrow function.
+
+[source,]
+----
+export default function Header({onClick}) {
+    return (
+        <nav>
+            <div className="container mx-auto px-6 py-2 flex justify-between items-center">
+                <a className="font-bold text-2xl lg:text-4xl alternative-font" href="#">
+                    React 4 teachers
+                </a>
+                <div className="block lg:hidden">
+                    <button
+                        className="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-teal-500 appearance-none focus:outline-none">
+                        <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <title>React 4 teachers</title>
+                            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div className="hidden lg:block">
+                    <ul className="inline-flex">
+                        <li><a className="px-4 font-bold" href="/">Home</a></li>
+                        <li><a className="px-4 hover:text-gray-800" href="#" onClick={()=>onClick(1)}>Ejercicio 1</a></li>
+                        <li><a className="px-4 hover:text-gray-800" href="#" onClick={()=>onClick(2)}>Ejercicio 2</a></li>
+                        <li><a className="px-4 hover:text-gray-800" href="#" onClick={()=>onClick(3)}>Ejercicio 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>)
+}
+----
+
+== React intro
+
+No te preocupes, es solo una introduccion!
+Pero te empezaran a salir muchas dudas, como son:
+
+- Como controlo el estado de una aplicacion completa?
+- Como debo ajustar las relaciones y propiedades padre-hijo?
+- No es excesivamente complejo?
+- Que diferencia hay entre React class y las funciones?
+
+image::images/Impatient-Meme.jpeg[300,300]
