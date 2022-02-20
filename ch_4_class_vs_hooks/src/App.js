@@ -13,11 +13,6 @@ class App extends React.Component {
         this.setActiveOption = this.setActiveOption.bind(this);
     }
 
-    componentDidMount() {
-        /*setTimeout(() => {
-            this.setActiveOption(2)
-        }, 10000)*/
-    }
 
     setActiveOption(val) {
         console.log(`Callback - changing state value to ${val}`)
