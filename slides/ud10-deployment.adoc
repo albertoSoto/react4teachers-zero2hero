@@ -24,40 +24,7 @@ image::images/react-zero-hero.jpeg[800,600]
 
 == Aspectos docentes
 
-Distribució de les sessions: 
-22 de febrer i 8, 15, 22 i 29 de març de 11:30h a 13:30h.
-
-- 10h presencial per videoconferència i 20h a distància a través de Classroom.
-- Les sessions presencials seran gravades.
-
-=== Transferència
-- Realitzar, aplicar i entregar l'aplicació didàctica segons el model establert.
-Els continguts treballats a la formació s'han de lligar al mòdul que imparteix el participant aquest curs escolar en el seu centre.
-Les aplicacions didàctiques seran publicades al web de la Conselleria d'Educació i Formació Professional (amb la
-inscripció a la formació, el participant accepta les condicions).
-
-== Avaluació i certificació
-
-- Assistència mínima obligatòria 85% de les sessions presencials.
-- Les faltes d'assistència a les hores de formació presencial, no es justificaran en cap cas.
-- Realització de les tasques obligatòries.
-- Entrega de l'aplicació didàctica en el format i termini establerts.
-- Una vegada finalitzat el procés de certificació, l'activitat es tancarà.
-- En aquest moment us enviarem un correu electrònic a l'adreça que heu posat a la vostra sol·licitud.
-- Si heu certificat, podreu veure la formació al vostre portal, apartat Formació dels docents, Activitats internes.
-- Si no la podeu veure, és que no la teniu certificada.
-- Us podeu posar en contacte amb el servei organitzador per a qualsevol aclariment.
-- Disposau d'un termini de 90 dies des de l'enviament del correu electrònic per presentar una reclamació al servei organitzador, si s'escau.
-
-== Recursos de aprendizaje
-
-https://js.coderslang.com/
-https://www.c-sharpcorner.com/article/comparison-between-ecmascript-5-and-ecmascript-6-versions-of-javascript/#:~:text=While%20ECMAScript%205%20introduced%20lots,functionality%20to%20create%20typed%20arrays.
-
-== Links
-
-* https://www.freecodecamp.org/news/react-fundamentals-for-beginners/
-https://www.freecodecamp.org/news/learn-react-basics/
-https://www.freecodecamp.org/news/javascript-execution-context-and-hoisting/
-* https://www.freecodecamp.org/news/the-javascript-array-handbook/
-* https://www.freecodecamp.org/news/understanding-let-const-and-var-keywords/
+- ngrok
+- https://tunnelto.dev/
+- https://surge.sh/
+- vercel

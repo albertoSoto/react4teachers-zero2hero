@@ -550,7 +550,7 @@ En el anterior ejercicio, utilizamos a proposito React class. Tienes que consegu
 - Empieza por los componentes mas basicos
 - Observa los metodos didMount
 - Deja el componente general para el final
-- Solo tienes que centrate en los hooks: effect, ref, callBack y state
+- Solo tienes que centrate en los hooks: effect y state
 - Al finalizar, incorpora las acciones al menu cuando esta en modo movil
 
 
