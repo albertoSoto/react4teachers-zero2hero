@@ -22,42 +22,529 @@ image::images/react-zero-hero.jpeg[800,600]
 * 9.- TailwindCSS y StyledComponents 
 * 10.-Despliegue de aplicaciones
 
-== Aspectos docentes
+== UD4 - Class components vs Function components
 
-Distribució de les sessions: 
-22 de febrer i 8, 15, 22 i 29 de març de 11:30h a 13:30h.
+Aunque React presenta una logica muy estable, en algunos casos se puede complicar muchom como hemos demostrado en el ejercicio de la UD3. Algunos ejemplos son los siguientes:
 
-- 10h presencial per videoconferència i 20h a distància a través de Classroom.
-- Les sessions presencials seran gravades.
+- Donde guardo los datos obtenidos? Tienen vida en un solo componente? Que sucede si quiero hacer una tabla CRUD y una componente detalle? Debo cargar los elementos 2 veces?
 
-=== Transferència
-- Realitzar, aplicar i entregar l'aplicació didàctica segons el model establert.
-Els continguts treballats a la formació s'han de lligar al mòdul que imparteix el participant aquest curs escolar en el seu centre.
-Les aplicacions didàctiques seran publicades al web de la Conselleria d'Educació i Formació Professional (amb la
-inscripció a la formació, el participant accepta les condicions).
+- Como puedo controlar las propiedades que me pasan?
 
-== Avaluació i certificació
+- Que elementos debo guardar en el estado del componente?
 
-- Assistència mínima obligatòria 85% de les sessions presencials.
-- Les faltes d'assistència a les hores de formació presencial, no es justificaran en cap cas.
-- Realització de les tasques obligatòries.
-- Entrega de l'aplicació didàctica en el format i termini establerts.
-- Una vegada finalitzat el procés de certificació, l'activitat es tancarà.
-- En aquest moment us enviarem un correu electrònic a l'adreça que heu posat a la vostra sol·licitud.
-- Si heu certificat, podreu veure la formació al vostre portal, apartat Formació dels docents, Activitats internes.
-- Si no la podeu veure, és que no la teniu certificada.
-- Us podeu posar en contacte amb el servei organitzador per a qualsevol aclariment.
-- Disposau d'un termini de 90 dies des de l'enviament del correu electrònic per presentar una reclamació al servei organitzador, si s'escau.
+> Cuando estas preguntas se juntan con las diversas fases del componente, la arquitectura se vuelve compleja.
 
-== Recursos de aprendizaje
+Fue en ese momento cuando se decidio publicar el concepto de React Hooks, que has utilizado en ocasiones sin conocerlo.
 
-https://js.coderslang.com/
-https://www.c-sharpcorner.com/article/comparison-between-ecmascript-5-and-ecmascript-6-versions-of-javascript/#:~:text=While%20ECMAScript%205%20introduced%20lots,functionality%20to%20create%20typed%20arrays.
+==  Class component
 
-== Links
+Como sabes un class component debe extender de React.Component y permite utilizar el ciclo de vida explicado en la ud anterior.
+El metodo obligatorio es render()
 
-* https://www.freecodecamp.org/news/react-fundamentals-for-beginners/
-https://www.freecodecamp.org/news/learn-react-basics/
-https://www.freecodecamp.org/news/javascript-execution-context-and-hoisting/
-* https://www.freecodecamp.org/news/the-javascript-array-handbook/
-* https://www.freecodecamp.org/news/understanding-let-const-and-var-keywords/
+[source,]
+----
+class Car extends React.Component {
+  render() {
+    return <h2>Hi, I am a Car!</h2>;
+  }
+}
+----
+
+== Class component
+
+Las propiedades y el estado son elementos de vital importancia.
+Comprueba el funcionamiento del siguiente codigo
+
+[source,]
+----
+import React from "react";
+
+class App extends React.Component {
+constructor(props) {
+	super(props);
+	this.state = { change: true };
+}
+render() {
+	return (
+	<div>
+		<button
+		onClick={() => {
+			this.setState({ change: !this.state.change });
+		}}
+		>
+		Click Here!
+		</button>
+		{this.state.change ? (
+		<h1>Welcome to React4teachers</h1>
+		) : (
+		<h1>From zero to hero!</h1>
+		)}
+	</div>
+	);
+}
+}
+
+export default App;
+
+----
+
+==  Function component
+
+Un componente basado en funciones permite un codigo mas simple, y es de gran aplicacion en componentes sencillos. 
+
+Para implementar las diferentes fases del ciclo de vida, se utilizara un concepto denominado HoC (High Order Component) a traves de los conocidos Reactr Hooks.
+
+Seran funcionalidades que se ejecutaran en el ciclo de vida correspondiente, y simplifican muchisimo el proceso de desarrollo.
+
+[source,]
+----
+function Car() {
+  return <h2>Hi, I am a Car!</h2>;
+}
+----
+
+== Function component: state
+
+Para aplicar los conceptos de estado y las propiedades usaremos el hook "setState" que aplica los metodos de desestructuracion y descomposicion de un array.
+
+- la primera posicion del array sera el valor
+- la segunda posicion del array sera el setter
+
+[source,]
+----
+import React, { useState } from 'react';
+  
+const Example=()=> {
+  const [change, setChange] = useState(true);     
+      return (
+        <div>
+        <button onClick = {() => setChange(!change)}>
+          Click Here!
+        </button>
+        {change?<h1>Welcome to React4teachers</h1>:
+                <h1>From zero to hero!</h1>}
+        </div>
+        );
+  }
+ 
+export default Example;
+----
+
+== Function component: props
+
+En el caso de las propiedades, el uso es identico en ambos. Basicamente props es un objeto que podemos referenciar de cualquier manera.
+
+*Para estructurar las propiedades, y facilitar el uso del componente en nuestra libreria utilizaremos PropTypes*
+
+Este ejemplo es sin la utilizacion de Proptypes
+
+[source,]
+----
+import React from 'react';
+
+function App(props) {
+return (
+	<div >
+	<Person name="Juanito" eyeColor="blue" age="23"></Person>
+	<Person name="Pepito" eyeColor="blue" ></Person>
+	<Person name="Menganito" age="23"></Person>
+	<Person eyeColor="green" age="23"></Person>
+	</div>
+);
+}
+
+function Person(props) {
+    return (
+    	<div>
+    	<p> Name: {props.name} </p>
+    	<p>EyeColor: {props.eyeColor}</p>
+    	<p>Age : {props.age} </p>
+    	<hr></hr>
+    	</div>
+    )
+}
+Person.defaultProps = {
+    name: "Super Lopez",
+    eyeColor: "deepblue",
+    age: "45"
+}
+export default App;
+----
+
+== Hooks
+
+Los hooks o anzuelos son funciones que devuelven un array de elementos. Cada hook, tiene una funcionalidad concreta y un caso de uso. Sin embargo, conocer los diversos hooks permite la programacion con React sin clases, y eso "simplifica" el conocimiento de la API de class. Consideraciones:
+
+- No son un reemplazo, mas bien una alternativa
+- Puedes mezclar componentes por class con functional
+- No hay planes de eliminar React class
+- Surgen como opcion para reutilizar logica
+- Con class, los componentes pueden realmente ser complejos (ref, props, shared state..)
+- Eliminamos el concepto de this y el binding
+- Se ejecutan en cada actualizacion de render!
+
+== Reglas de uso en hooks
+
+- Solo se llaman en nivel superior. No pueden usarse en bucles, condiciones o funciones internas
+- Solo se pueden usar en components React basados en funciones, o desde otros Hooks
+- Su orden en el codigo es crucial
+
+Para asegurar esas reglas se puede usar eslint-plugin-react-hooks
+
+[source,]
+----
+// Your ESLint configuration
+{
+  "plugins": [
+    // ...
+    "react-hooks"
+  ],
+  "rules": {
+    // ...
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+  }
+}
+----
+
+https://reactjs.org/docs/hooks-rules.html[Ref]
+
+== Diferencias hooks vs class
+
+La mayor diferencia entre los Hooks y el estado basado en clases es que los hooks se utilizan dentro del componente funcional: no los mezcles!
+
+Una cosa que hay que tener en cuenta es que nunca hay que llamar a los hooks dentro de una lógica, ¡siempre debe estar en el nivel superior! (HoC)
+
+Por tanto, se usan en una funcion como si fuera equivalente al metodo render, pero en class todo esta mas organizado.
+
+== Hooks vs class
+
+image::images/class_vs_hooks.png[]
+
+== Hooks: Ejemplo de ejecucion
+
+[source,]
+----
+function Form() {
+  // 1. Definimos el estado name y valor por defecto
+  const [name, setName] = useState('Mary');
+  // 2. Usamos un efecto para que persista en localStorage
+  useEffect(function persistForm() {
+    localStorage.setItem('formData', name);
+  });
+  // 3. Definimos el estado apellido
+  const [surname, setSurname] = useState('Poppins');
+  // 4. Actualizamos el DOM
+  useEffect(function updateTitle() {
+    document.title = name + ' ' + surname;
+  });
+  // ...
+}
+----
+
+Para garantizar el estado, sigue el flujo de class, de la siguiente manera:
+
+[source,]
+----
+// First render
+useState('Mary')           // 1. Initialize the name state variable with 'Mary'
+useEffect(persistForm)     // 2. Add an effect for persisting the form
+useState('Poppins')        // 3. Initialize the surname state variable with 'Poppins'
+useEffect(updateTitle)     // 4. Add an effect for updating the title
+// Second render
+useState('Mary')           // 1. Read the name state variable (argument is ignored)
+useEffect(persistForm)     // 2. Replace the effect for persisting the form
+useState('Poppins')        // 3. Read the surname state variable (argument is ignored)
+useEffect(updateTitle)     // 4. Replace the effect for updating the title
+----
+
+== Hooks
+
+Si usaramos un bucle como el siguiente
+
+[source,]
+----
+if (name !== '') {
+    useEffect(function persistForm() {
+      localStorage.setItem('formData', name);
+    });
+}
+----
+
+La ejecucion no puede garantizar el comportamiento entre renderizajes
+
+[source,]
+----
+useState('Mary')           // 1. Leera el estado
+// useEffect(persistForm)  // 🔴 Este hook no se ejecutara!
+useState('Poppins')        // 🔴 2 (en lugar de 3). Fallara
+useEffect(updateTitle)     // 🔴 3 (en lugar de 4). Fallara por orden de ejecucion
+----
+
+Forma adecuada:
+Imagina que los hooks se guardan en un array y se garantizan por posicion.
+
+[source,]
+----
+useEffect(function persistForm() {
+    // 👍 El hook se ejecuta igual, y no rompemos el ciclo ni el orden
+    if (name !== '') {
+      localStorage.setItem('formData', name);
+}
+});
+----
+
+== Hooks: useState()
+
+useState() es un hook que permite jugar con el estado en componentes funcionales en react. Para hacer una comparación justa tomemos el mismo ejemplo del contador y veamos en qué se diferencia de la implementación anterior.
+
+[source,]
+----
+import React, { useState } from 'react';
+  
+const ContadorHooks=()=> {
+  const [count, setCount] = useState(0);     
+  return (
+        <div>
+        <span>Has clickado {count} veces</span>    
+        <button onClick = {() => setCount(count++)}>
+          Click Here!
+        </button>
+        </div>
+    );
+}
+ 
+export default ContadorHooks;
+----
+
+
+== Class
+
+Veamos como seria el mismo componente con Class
+
+[source,]
+----
+import React from "react";
+
+export default class ContadorClass extends React.Component {
+constructor(props) {
+	super(props);
+	this.state = { count: 0 };
+}
+render() {
+	return (
+	<div>
+	    <span>Has clickado {this.state.count} veces</span>
+		<button
+		onClick={() => {
+			this.setState({ count: this.state.count++ });
+		}}
+		>
+		Click Here!
+		</button>
+		)}
+	</div>
+	);
+}
+}
+----
+
+== Hooks: useState
+
+[source,]
+----
+const [count, setCount] = useState(0);
+//que en vanillaJs equivale a
+const aux = useState(0)
+const otherCount = aux[0]
+const setOtherCount = aux[1]
+----
+
+- Pasamos como argumento el valor inicial
+- El primer elemento del array es valor del estado (getter)
+- El segundo elemento del array es el setter
+- Hacemos un alias comprensible
+- Guardamos en const para evitar ser modificados incorrectamente, asi ejecuta la funcion interna.
+
+Para usar los valores:
+
+[source,]
+----
+// Evitamos tener que usar this:
+<p>You clicked {this.state.count} times</p>
+// Resultado
+<p>You clicked {count} times</p>
+----
+
+
+== Hooks: useEffect
+
+- Es un hook similar a componentDidMount y componentDidUpdate
+- Podemos ejecutar logica fuera del scope del componente. En el ejemplo modificamos la cabecera
+- Es logica que se ejecutara DESPUES de cada render
+
+[source,]
+----
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+----
+
+Simplifica duplicacion de codigo:
+
+[source,]
+----
+class Example extends React.Component {
+    ...
+ componentDidMount() {
+    document.title = `You clicked ${this.state.count} times`;
+  }
+  componentDidUpdate() {
+    document.title = `You clicked ${this.state.count} times`;
+  }
+
+  render() {
+  ...
+  }
+}
+----
+
+== UseEffect
+
+En algunos casos necesitamos especificar diferentes acciones para didMount y para willUnMount. Un ejemplo seria una aplicacion de chat, que debe cambiar el estado de conexion al resto de usuarios.
+
+Con class seria asi:
+
+
+[source,]
+----
+ ...
+ componentDidMount() {
+    ChatAPI.subscribeToFriendStatus(
+      this.props.friend.id,
+      this.handleStatusChange
+    );
+  }
+  componentWillUnmount() {
+    ChatAPI.unsubscribeFromFriendStatus(
+      this.props.friend.id,
+      this.handleStatusChange
+    );
+  }
+  handleStatusChange(status) {
+    this.setState({
+      isOnline: status.isOnline
+    });
+  }
+  ...
+----
+
+== UseEffect: return function
+
+La solucion con useEffect es devolver una funcion, en este caso, esa funcion *se ejecutara en tiempo de limpieza o, lo que es lo mismo, en componentWillUnmount*, ofreciendo dos ejecuciones distintas.
+
+
+[source,]
+----
+import React, { useState, useEffect } from 'react';
+function FriendStatus(props) {
+  const [isOnline, setIsOnline] = useState(null);
+  useEffect(() => {
+    function handleStatusChange(status) {
+      setIsOnline(status.isOnline);
+    }
+    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+    // Especificamos la ejecucion al desmontar el componente:
+    //return function cleanup() {
+    //  ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+    //};
+    // Forma habitual: arrow func
+    return () => {
+      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+    };
+  });
+  if (isOnline === null) {
+    return 'Loading...';
+  }
+  return isOnline ? 'Online' : 'Offline';
+}
+----
+
+> Puedes usar UseEffect varias veces para separar la logica de la aplicacion
+
+== UseEffect: control de la ejecucion
+
+> Los Effects se ejecutan en cada actualizacion
+
+Para evitar la sobrecarga de logica en cada renderizaje, puedes usar un parametro adicional a useEffect que usara para comparar el valor de retorno. Si el valor es identico, no se ejecutara.
+
+[source,]
+----
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [count]); // Solo se ejecuta si el contador cambia
+----
+
+> Para usarlo, conviene que devuelvas en el array TODOS los valores que necesitas para comparar
+
+> Si devuelves un array vacio, indicas que no dependes de nada, asi que se ejecutara solo una vez
+
+== Otros hooks
+
+Durante el curso iremos introduciendo otros hooks, como son:
+
+- https://reactjs.org/docs/context.html[useContext], permite delegar una ambito de ejecucion de orden superior
+- https://reactjs.org/docs/hooks-reference.html#usereducer[useReducer*], siendo un posible sustituto de Redux
+- https://reactjs.org/docs/hooks-reference.html#usecallback[useCallback*], permite aplicar callbacks con memoria de estado
+- https://reactjs.org/docs/hooks-reference.html#usememo[useMemo], para mejorar el rendimiento de funciones pesadas que queremos que se ejecuten una vez
+- https://reactjs.org/docs/hooks-reference.html#useref[useRef*], para permitir referenciar partes del componente
+- https://reactjs.org/docs/hooks-reference.html#useimperativehandle[userImperativeHandle] que se usa con un forwardRef.
+- https://reactjs.org/docs/hooks-reference.html#uselayouteffect[useLayoutEffect], es como useEffect, pero que aplica a todo el DOM
+- https://reactjs.org/docs/hooks-reference.html#usedebugvalue[useDebugValue], para utilizar con devtools
+
+[source,]
+----
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null);
+  const onButtonClick = () => {
+    // `current` points to the mounted text input element
+    inputEl.current.focus();
+  };
+  return (
+    <>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </>
+  );
+}
+----
+
+== Referencias
+
+- https://blog.bitsrc.io/6-reasons-to-use-react-hooks-instead-of-classes-7e3ee745fe04[Razones para usar hooks]
+- https://medium.com/soluto-engineering/react-class-features-vs-hooks-equivalents-745368dafdb3[Equivalencias Class vs Hooks]
+- https://betterprogramming.pub/react-hooks-vs-classes-add2676a32f2[Hooks vs Class]
+- https://reactjs.org/docs/hooks-reference.html[Hooks reference]
+
+== Ejercicio
+
+En el anterior ejercicio, utilizamos a proposito React class. Tienes que conseguir migrar el codigo a react hooks y comparar el codigo resultante.
+
+
