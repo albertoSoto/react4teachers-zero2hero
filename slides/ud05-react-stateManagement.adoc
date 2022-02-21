@@ -171,15 +171,150 @@ image::images/reducer2.jpeg[]
 
 image::images/useReducer3.jpeg[]
 
-== Ejercicio 1
+== Ejercicio guiado
 
 Aplica los reductores con useReducer y useContext a las acciones del menu.
 
 == Solucion al ejercicio
 
+Para poder usar los reducers y el contexto adecuadamente debemos realizar lo siguiente:
 
+- El componente padre lo dejaremos muy basico, todo lo pasaremos a componentes hijo, y se encargara solo de administrar el estado y las acciones a la aplicacion
+
+- El contenido que teniamos en el lo pasaremos a un componente main
+
+- Generaremos una clase que englobara la logica de la aplicacion, que denominaremos AppContextProvider.js
+
+image::images/ch5-guidedExercise-1.png[]
+
+
+== Solucion al ejercicio
+
+AppContextProvider I
+
+[source,]
+----
+import React, { useReducer, createContext } from "react";
+//Definimos el contexto de nuestra aplicacion
+const AppContext = createContext();
+//Definimos un estado inicial de aplicacion, que es interno
+const initialState = {
+    option: 1,
+    data: []
+}
+//Serializamos las claves de nuestra aplicacion para no tener fallos
+const ACTIONS = {
+    SET_MENU_OPTION:"setMenuOption",
+    LOAD_USERS:"loadUsers"
+}
+// Aqui esta el turron! El reducer. Switch entre acciones que modifica parte del estado
+const reducer = (state, action) => {
+    switch (action.type) {
+        case ACTIONS.SET_MENU_OPTION:
+            //return {...initialState.data, option:1}
+            return {option: action.payload}
+        default:
+            return state
+    }
+}
+----
+
+
+== Solucion al ejercicio
+
+AppContextProvider II
+
+[source,]
+----
+//AppProvider sera nuestro componente magico! Hara todo lo necesario para las acciones
+// En esta clase, tendremos toda la logica de aplicacion
+const AppProvider = ({ children }) => {
+    //Aqui invocamos el reducer, nos trae el estado y el dispatch para lanzar eventos
+    const [appState, dispatch] = useReducer(reducer, initialState);
+    //Como no queremos usar dispatch fuera de la aplicacion, vamos a hacer un hub de funciones
+    // Usamos payload como un elemento dinamico -> es un concepto redux
+    const appActions = {
+        setOption1: () => {
+            dispatch({type: ACTIONS.SET_MENU_OPTION, payload: 1})
+            console.log("option 1")
+        },
+        setOption2: () => {
+            console.log("option 2")
+            dispatch({type: ACTIONS.SET_MENU_OPTION, payload: 2})
+        },
+        setOption3: () => {
+            console.log("option 3")
+            dispatch({type: ACTIONS.SET_MENU_OPTION, payload: 3})
+        },
+    }
+    //Esta function envia como valor un objeto json, con el estado y las acciones que queremos usar externas
+    return (
+        <AppContext.Provider value={{
+            appState: appState,
+            appActions: appActions,
+        }}>
+            {children}
+        </AppContext.Provider>
+    );
+};
+//Y lo mas importante, solo exportamos el componente y el contexto para usar useContext
+export { AppProvider, AppContext };
+----
+
+== Solucion al ejercicio
+
+App.js
+
+[source,]
+----
+import Header from "./layout/Header"
+import React from 'react';
+import {AppProvider} from "./AppContextProvider";
+import {Main} from "./layout/Main";
+const App = () => {
+    return (
+        <AppProvider>
+            <div className="text-gray-700 bg-white">
+                <Header/>
+                <Main/>
+            </div>
+        </AppProvider>
+    )
+}
+export default App;
+----
+
+== Solucion al ejercicio
+
+Header.js
+
+image::images/ch5-guidedExercise-2.png[]
+
+
+== Solucion al ejercicio
+
+Main.js
+
+image::images/ch5-guidedExercise-3.png[]
+
+== State management with hooks
+
+Beneficios:
+
+- No requiere librerias y necesita poco codigo de inicio
+- Una vez disenado el provider, el codigo es muy sencillo
+- Es similar a Redux (por no decir identico)
+
+Cons:
+
+- Solo es aplicable a hooks
+- No podemos mezclar logicas, y solo aplicable a proyectos nuevos
+- El estado desaparece al refrescar, tenemos que instaurar nuestra persistencia
+- Barrera inicial, aunque pequena
 
 == State management
+
+Una vez comprendido como Redux ha profilerado el uso de reducers hasta que han sido incorporados en React Hooks, veamos como son las herramientas externas
 
 - Recoil
 - Redux: Reducers

@@ -1,6 +1,5 @@
 import React, { useContext,useState } from "react";
 import { AppContext } from "../AppContextProvider";
-
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     //El uso es directo: podemos acceder al estado o a las acciones con una sola linea. El resto igual.
