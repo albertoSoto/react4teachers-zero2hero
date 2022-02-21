@@ -16,7 +16,7 @@ Conselleria d'educacio de les Illes Balears
 
 By Alberto Soto
 
-UD1-Ecma6
+UD2 - Vanilla2React
 
 2022
 

@@ -4,12 +4,15 @@ include::_settings_deck.adoc[]
 
 = React4teachers: 2022 edition
 
+
 == React4teachers: From Zero 2 Hero
 
 
 image::images/react-zero-hero.jpeg[800,600]
 
+
 == Contenido del curso
+
 
 * 1.- Introducció 
 * 2.- De VanillaJs a React 
@@ -134,7 +137,7 @@ export default Example;
 
 En el caso de las propiedades, el uso es identico en ambos. Basicamente props es un objeto que podemos referenciar de cualquier manera.
 
-*Para estructurar las propiedades, y facilitar el uso del componente en nuestra libreria utilizaremos PropTypes*
+> Para estructurar las propiedades, y facilitar el uso del componente en nuestra libreria utilizaremos PropTypes
 
 Este ejemplo es sin la utilizacion de Proptypes
 
@@ -273,13 +276,15 @@ if (name !== '') {
 
 La ejecucion no puede garantizar el comportamiento entre renderizajes
 
+
 [source,]
 ----
 useState('Mary')           // 1. Leera el estado
-// useEffect(persistForm)  // 🔴 Este hook no se ejecutara!
-useState('Poppins')        // 🔴 2 (en lugar de 3). Fallara
-useEffect(updateTitle)     // 🔴 3 (en lugar de 4). Fallara por orden de ejecucion
+// useEffect(persistForm)  //  Este hook no se ejecutara!
+useState('Poppins')        //  2 (en lugar de 3). Fallara
+useEffect(updateTitle)     //  3 (en lugar de 4). Fallara por orden de ejecucion
 ----
+
 
 Forma adecuada:
 Imagina que los hooks se guardan en un array y se garantizan por posicion.
@@ -287,7 +292,7 @@ Imagina que los hooks se guardan en un array y se garantizan por posicion.
 [source,]
 ----
 useEffect(function persistForm() {
-    // 👍 El hook se ejecuta igual, y no rompemos el ciclo ni el orden
+    //  El hook se ejecuta igual, y no rompemos el ciclo ni el orden
     if (name !== '') {
       localStorage.setItem('formData', name);
 }
@@ -519,6 +524,7 @@ Durante el curso iremos introduciendo otros hooks, como son:
 - https://reactjs.org/docs/hooks-reference.html#uselayouteffect[useLayoutEffect], es como useEffect, pero que aplica a todo el DOM
 - https://reactjs.org/docs/hooks-reference.html#usedebugvalue[useDebugValue], para utilizar con devtools
 
+
 [source,]
 ----
 function TextInputWithFocusButton() {
@@ -535,6 +541,7 @@ function TextInputWithFocusButton() {
   );
 }
 ----
+
 
 == Referencias
 
@@ -698,3 +705,4 @@ const App = () =>{
 }
 export default App;
 ----
+
