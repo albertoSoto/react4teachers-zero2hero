@@ -69,7 +69,7 @@ module.exports = {
 ```
 
 
-Inside the vite.config.js insert the following
+Inside the postcss.config.js insert the following
 
 ```js
 module.exports = {
@@ -80,8 +80,16 @@ autoprefixer: {},
 }
 ```
 
+Generate a css file for it, that's will be included with your index.html
 
+touch /src/styles/main.css
+<link rel="stylesheet" href="/styles/main.css"/>
 
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
 ### Introducing tasks for vite
 
