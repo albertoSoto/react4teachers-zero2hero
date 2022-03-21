@@ -128,3 +128,12 @@ a la formación, el participante acepta las condiciones).
 - Si habéis certificado, podréis ver la formación en vuestro portal, apartado Formación de los docentes, Actividades internas.
 - Si no la podéis ver, es que no la tenéis certificada.
 - Os podéis poner en contacto con el servicio organizador para cualquier aclaración.
+
+== Cuentame:
+
+- npm o yarn?
+- jquery, vanilla, vue o angular?
+- ecma 5 o ecma 6?
+- js, jsx, ts o tsx?
+- experiencia web?
+- objetivos del curso

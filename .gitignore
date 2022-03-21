@@ -1,4 +1,4 @@
-/node_modules/
+*/node_modules/*
 /dist/*
 /slides/deck.js/
 /slides/reveal.js/
