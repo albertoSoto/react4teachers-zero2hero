@@ -158,7 +158,32 @@ ReactDOM.render(
 
 Conviene incluir las routas en un fichero separado
 
-== Lab3 - p3: components/Menu
+
+== Lab3 - p3: App.js
+
+Usaremos app.js como el layout principal y que engloba todo
+Para ello usaremos el component Outlet
+
+[source,]
+----
+import { Outlet} from "react-router-dom";
+import './App.css';
+import Menu from "./components/Menu";
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Menu/>
+      </header>
+      <Outlet />
+    </div>
+  );
+}
+export default App;
+
+----
+
+== Lab3 - p4: components/Menu
 
 Genera un componente Menu que incluya los enlaces que necesitas.
 
@@ -185,6 +210,26 @@ const Menu = () => (
 
 export default Menu
 ----
+
+
+== Lab3 - p5: pages/Users
+
+Genera un componente sencillo, tipo hola mundo
+
+[source,]
+----
+const Users =()=>{
+    return <h2>Users:</h2>
+}
+
+export default Users
+----
+
+== Lab3 - p6: pages/User
+
+Queremos que User acepte un parametro. Si te fijas en el ejemplo hasta ahora no lo tienes funcionando.
+
+
 
 
 == Recursos de aprendizaje

@@ -15,9 +15,17 @@ ReactDOM.render(
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<App />}>
-                  <Route path="users" element={<Users />} />
-                  <Route path="user" element={<User />} />
+                  <Route path="users" element={<Users />}/>
+                  <Route path="user/:userId" element={<User />} />
               </Route>
+              <Route
+                  path="*"
+                  element={
+                      <main style={{ padding: "1rem" }}>
+                          <p>There's nothing here!</p>
+                      </main>
+                  }
+              />
           </Routes>
       </BrowserRouter>
   </React.StrictMode>,
