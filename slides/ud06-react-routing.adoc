@@ -219,7 +219,7 @@ Genera un componente sencillo, tipo hola mundo
 [source,]
 ----
 const Users =()=>{
-    return <h2>Users:</h2>
+    return <h2>Pagina de usuarios</h2>
 }
 
 export default Users
@@ -227,10 +227,42 @@ export default Users
 
 == Lab3 - p6: pages/User
 
-Queremos que User acepte un parametro. Si te fijas en el ejemplo hasta ahora no lo tienes funcionando.
+Queremos que User acepte un parametro. Si te fijas en el ejemplo hasta ahora no lo tienes funcionando. Definiremos useParams y lo utilizaremos con desestructuracion.
+
+[source,]
+----
+import { useParams } from "react-router-dom";
+const User =()=>{
+    const { userId } = useParams();
+    return <p>Esto es el usuario {userId}</p>;
+}
+export default User
+----
 
 
+Ahora nos falta enlazarlo adecuadamente con nuestros routers. Anadimos un elemento de fail over para rutas nos definidas.
 
+[source,]
+----
+  <React.StrictMode>
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<App />}>
+                  <Route path="users" element={<Users />}/>
+                  <Route path="user/:userId" element={<User />} />
+              </Route>
+              <Route
+                  path="*"
+                  element={
+                      <main style={{ padding: "1rem" }}>
+                          <p>There's nothing here!</p>
+                      </main>
+                  }
+              />
+          </Routes>
+      </BrowserRouter>
+  </React.StrictMode>,
+----
 
 == Recursos de aprendizaje
 
