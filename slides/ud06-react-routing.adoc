@@ -264,6 +264,134 @@ Ahora nos falta enlazarlo adecuadamente con nuestros routers. Anadimos un elemen
   </React.StrictMode>,
 ----
 
+
+== Otras funcionalidades de Router
+
+- UseParams > p6
+- UseLocation
+- ActiveLinks
+- Search Params
+- useNavigate
+
+
+== UseLocation
+
+
+UseLocation, permite conocer la url actual
+
+[source,]
+----
+import { useLocation } from 'react-router-dom';
+function Product() {
+  const location = useLocation();
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const searchParams = new URLSearchParams(location.search);
+  }, [location]);
+  return <p>Product</p>;
+}
+----
+
+== ActiveLinks
+
+Si cambias Link por NavLink tienes la opcion de hacer lo siguiente para saber si el link esta activo:
+
+[source,]
+----
+ <NavLink
+    style={({ isActive }) => {
+      return {
+        display: "block",
+        margin: "1rem 0",
+        color: isActive ? "red" : "",
+      };
+    }}
+    to={`/invoices/${invoice.number}`}
+    key={invoice.number}
+  >
+    {invoice.name}
+  </NavLink>
+----
+
+
+== Searchparams
+
+Tambien permite la captura de informacion en la url por metodo GET (ejemplo "/login?success=1")
+
+[source,]
+----
+import {
+  NavLink,
+  Outlet,
+  useSearchParams,
+} from "react-router-dom";
+....
+let [searchParams, setSearchParams] = useSearchParams();
+....
+ let filter = searchParams.get("filter");
+....
+----
+
+https://reactrouter.com/docs/en/v6/getting-started/tutorial#search-params
+
+== useNavigate
+
+Si quieres enviar el usuario a una parte de la pagina programaticamente es sencillo
+
+[source,]
+----
+import {
+  useParams,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
+....
+ <button
+          onClick={() => {
+            deleteInvoice(invoice.number);
+            navigate("/invoices" + location.search);
+          }}
+        >
+          Delete
+        </button>
+----
+
+
+== Helmet
+
+Para poder atender a requerimientos SEO, puedes utilizar esta libreria si te bases en React*. Curiosamente, esta generada por la NFL, de ahi el nombre.
+
+https://www.npmjs.com/package/react-helmet
+
+- Soporta todas las etiquetas head válidas: title, base, meta, link, script, noscript y style.
+- Admite atributos para las etiquetas body, html y title.
+- Soporta el renderizado del lado del servidor.
+- Los componentes anidados anulan los cambios de cabecera duplicados.
+- Los cambios de cabecera duplicados se conservan cuando se especifican en el mismo componente (soporte para etiquetas como "apple-touch-icon").
+- Llamada de retorno para el seguimiento de los cambios en el DOM.
+
+== Helmet
+
+[source,]
+----
+import React from "react";
+import {Helmet} from "react-helmet";
+class Application extends React.Component {
+  render () {
+    return (
+        <div className="application">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>My Title</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+            ...
+        </div>
+    );
+  }
+};
+----
+
 == Recursos de aprendizaje
 
 * https://stackblitz.com/
